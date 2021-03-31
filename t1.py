@@ -1,3 +1,9 @@
+# =====================================================================
+# Tarea 1 - Inteligencia Artificial (01-2021)
+# Sebastián Ignacio Toro Severino (sebastian.toro1@mail.udp.cl)
+# Ejercicio 1
+# =====================================================================
+
 import os
 import pandas as pd
 import bnlearn as bn
