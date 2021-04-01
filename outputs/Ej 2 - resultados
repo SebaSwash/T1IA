@@ -1,0 +1,107 @@
+======= [Matriz de transición de estados] =======
+PM (2, 2) states: ['Cases falling', 'Cases rising'] -> obs: ['Cases falling', 'Cases rising'].
+               Cases falling  Cases rising
+Cases falling           0.30          0.70
+Cases rising            0.15          0.85
+
+
+======= [Matriz de emisión] =======
+PM (2, 4) states: ['Cases falling', 'Cases rising'] -> obs: ['Buy a mask', 'Die', 'Get infected', 'Go to the park'].
+               Buy a mask   Die  Get infected  Go to the park
+Cases falling        0.10  0.20           0.3             0.4
+Cases rising         0.25  0.35           0.4             0.0
+
+
+======= [Distribución inicial de probabilidades (pi)] =======
+             Cases falling  Cases rising
+probability            0.3           0.7
+
+
+[Hidden Markov Chain]
+HML states: 2 -> observables: 4.
+
+
+======= [Prueba de probabilidad mediante una cadena de observaciones] =======
+- Cadena de observaciones: ['Go to the park', 'Buy a mask', 'Get infected', 'Get infected', 'Die']
+- Probabilidad de ocurrencia: 0.0011703124500000001
+
+
+======= [Validación de implementación] =======
+- Suma de la lista de posibles probabilidades: 0.9999999999999993
+
+
+======= [Datos de la simulación] =======
+- Secuencia de observaciones: ['Die', 'Buy a mask', 'Get infected', 'Get infected', 'Die']
+- Secuencia de estados ocultos: ['Cases falling', 'Cases rising', 'Cases rising', 'Cases rising', 'Cases rising']
+- Secuencia de estados ocultos descubiertos por el modelo: ['Cases rising', 'Cases rising', 'Cases rising', 'Cases rising', 'Cases rising']
+
+
+======= [Tabla de ranking de posibles secuencias de estados] =======
+- Secuencia de observaciones: ['Die', 'Buy a mask', 'Get infected', 'Get infected', 'Die']
+- Posibles secuencias de estados ocultos:
+                0              1              2              3              4  score
+31   Cases rising   Cases rising   Cases rising   Cases rising   Cases rising   1.75
+29   Cases rising   Cases rising   Cases rising  Cases falling   Cases rising   1.65
+27   Cases rising   Cases rising  Cases falling   Cases rising   Cases rising   1.65
+15  Cases falling   Cases rising   Cases rising   Cases rising   Cases rising   1.60
+23   Cases rising  Cases falling   Cases rising   Cases rising   Cases rising   1.60
+30   Cases rising   Cases rising   Cases rising   Cases rising  Cases falling   1.60
+25   Cases rising   Cases rising  Cases falling  Cases falling   Cases rising   1.55
+13  Cases falling   Cases rising   Cases rising  Cases falling   Cases rising   1.50
+21   Cases rising  Cases falling   Cases rising  Cases falling   Cases rising   1.50
+19   Cases rising  Cases falling  Cases falling   Cases rising   Cases rising   1.50
+11  Cases falling   Cases rising  Cases falling   Cases rising   Cases rising   1.50
+28   Cases rising   Cases rising   Cases rising  Cases falling  Cases falling   1.50
+26   Cases rising   Cases rising  Cases falling   Cases rising  Cases falling   1.50
+7   Cases falling  Cases falling   Cases rising   Cases rising   Cases rising   1.45
+14  Cases falling   Cases rising   Cases rising   Cases rising  Cases falling   1.45
+22   Cases rising  Cases falling   Cases rising   Cases rising  Cases falling   1.45
+17   Cases rising  Cases falling  Cases falling  Cases falling   Cases rising   1.40
+9   Cases falling   Cases rising  Cases falling  Cases falling   Cases rising   1.40
+24   Cases rising   Cases rising  Cases falling  Cases falling  Cases falling   1.40
+12  Cases falling   Cases rising   Cases rising  Cases falling  Cases falling   1.35
+3   Cases falling  Cases falling  Cases falling   Cases rising   Cases rising   1.35
+5   Cases falling  Cases falling   Cases rising  Cases falling   Cases rising   1.35
+18   Cases rising  Cases falling  Cases falling   Cases rising  Cases falling   1.35
+10  Cases falling   Cases rising  Cases falling   Cases rising  Cases falling   1.35
+20   Cases rising  Cases falling   Cases rising  Cases falling  Cases falling   1.35
+6   Cases falling  Cases falling   Cases rising   Cases rising  Cases falling   1.30
+16   Cases rising  Cases falling  Cases falling  Cases falling  Cases falling   1.25
+1   Cases falling  Cases falling  Cases falling  Cases falling   Cases rising   1.25
+8   Cases falling   Cases rising  Cases falling  Cases falling  Cases falling   1.25
+4   Cases falling  Cases falling   Cases rising  Cases falling  Cases falling   1.20
+2   Cases falling  Cases falling  Cases falling   Cases rising  Cases falling   1.20
+0   Cases falling  Cases falling  Cases falling  Cases falling  Cases falling   1.10
+
+
+[Entrenamiento del modelo]
+Training... epoch = 1 out of 20, score = 8.321750821874999e-05.
+Training... epoch = 2 out of 20, score = 0.0005818709822625032.
+Training... epoch = 3 out of 20, score = 0.0007093456571939858.
+Training... epoch = 4 out of 20, score = 0.0008512193085845219.
+Training... epoch = 5 out of 20, score = 0.0010908165669285827.
+Training... epoch = 6 out of 20, score = 0.0017518584729907995.
+Training... epoch = 7 out of 20, score = 0.0030485240930725457.
+Training... epoch = 8 out of 20, score = 0.004064391899680435.
+Training... epoch = 9 out of 20, score = 0.004400001812765975.
+Training... epoch = 10 out of 20, score = 0.004553135584534791.
+Training... epoch = 11 out of 20, score = 0.004688590898788781.
+Training... epoch = 12 out of 20, score = 0.004824462578746875.
+Training... epoch = 13 out of 20, score = 0.0049560727811765425.
+- Observaciones: ['Buy a mask', 'Go to the park', 'Die', 'Get infected', 'Buy a mask', 'Buy a mask']
+- Dataframe obtenido
+      counts           0               1               2               3               4               5  matched
+0      1.165  Buy a mask    Get infected      Buy a mask      Buy a mask      Buy a mask      Buy a mask        3
+1      1.132  Buy a mask  Go to the park      Buy a mask      Buy a mask      Buy a mask      Buy a mask        4
+2      1.106  Buy a mask  Go to the park      Buy a mask    Get infected      Buy a mask      Buy a mask        5
+3      1.082  Buy a mask    Get infected      Buy a mask    Get infected      Buy a mask      Buy a mask        4
+4      1.057  Buy a mask    Get infected      Buy a mask  Go to the park      Buy a mask      Buy a mask        3
+...      ...         ...             ...             ...             ...             ...             ...      ...
+1581   0.001         Die  Go to the park    Get infected  Go to the park    Get infected    Get infected        1
+1582   0.001  Buy a mask  Go to the park  Go to the park    Get infected    Get infected  Go to the park        3
+1583   0.001         Die  Go to the park             Die             Die  Go to the park      Buy a mask        3
+1584   0.001         Die  Go to the park      Buy a mask             Die  Go to the park             Die        1
+1585   0.001  Buy a mask      Buy a mask             Die             Die  Go to the park             Die        2
+
+[1586 rows x 8 columns]
+
